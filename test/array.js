@@ -4,15 +4,31 @@ var assert = require('chai').assert;
 var array = require('../lib/array');
 
 describe('Test remove array items', function() {
-  it('should delete the first item', function() {
-    var arr = [
-        'nan',
-        'bei',
-        'xi',
-        'dong'
+
+  var arr = [];
+
+  beforeEach(function() {
+    arr = [
+      'chun',
+      'xia',
+      'qiu',
+      'dong'
     ];
+  });
+
+  it('should delete the first item', function() {
     array.remove(arr, 0);
-    assert.deepEqual(arr, ['bei', 'xi', 'dong'], '删除第0个元素失败');
+    assert.deepEqual(arr, ['xia', 'qiu', 'dong'], '删除第0个元素失败');
+  });
+
+  it('should delete the third item', function() {
+    array.remove(arr, 2);
+    assert.deepEqual(arr, ['chun', 'xia', 'dong'], '删除第2个元素失败');
+  });
+
+  it('should delete the item not exists', function() {
+    array.remove(arr, 9);
+    assert.deepEqual(arr, [ 'chun', 'xia', 'qiu', 'dong' ], '删除一个不存在的元素应该对原数组没有任何影响');
   });
 });
 

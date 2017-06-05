@@ -34,24 +34,37 @@ describe('Remove array item by index', function() {
 });
 
 describe('Flatten the array', function() {
-  var arr = [];
 
-  beforeEach(function() {});
-
-  it('basic test', function() {
-    var arr = [
-      1,
-      [
-        2,
-        [
-          3,
-          4
-        ],
-        5
-      ],
-      6
-    ];
+  it('Flatten basic test', function() {
+    var arr = [ 1, [ 2, [ 3, 4 ], 5 ], 6 ];
     assert.deepEqual(array.flatten(arr), _.flattenDeep(arr));
+  });
+
+});
+
+describe('Map', function() {
+  var usingNative = false;
+
+  beforeEach(function() {
+    var mapProto = Array.prototype.map;
+    Array.prototype.map = function() {
+      mapProto.apply(this, arguments);
+      console.log('please don\'t use native map method');
+    }
+  });
+
+  it('should not use native map method', function() {
+    usingNative = false;
+    var arr = [1,2,3];
+    array.map(arr, function(item) {return item});
+    assert(!usingNative);
+  });
+
+  it('Map basic test', function() {
+    var arr = [1,2,3];
+    assert.deepEqual(array.map(arr, function(item) {
+      return item + 1;
+    }), [2,3,4], '基本测试失败')
   });
 
 });

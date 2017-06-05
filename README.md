@@ -1,4 +1,4 @@
-# dependency injection step by step
+# javascript practice
 
 Let's practice.
 

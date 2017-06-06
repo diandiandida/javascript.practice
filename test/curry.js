@@ -40,8 +40,8 @@ describe('Curry', function() {
     });
 
     var add1 = add(1);
-    assert.equal(add(2)(3), 6);
-    assert.equal(add(4, 5), 10);
+    assert.equal(add1(2)(3), 6);
+    assert.equal(add1(4, 5), 10);
   });
 
 })

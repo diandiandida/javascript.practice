@@ -19,10 +19,17 @@ $ npm test
 ### Tests
 
  - array
+ - curry
+ - jumping
+ - middleware
+ - value
 
 
 ### Todos
-----
+
+ - debounce
+ - throttle
+ - array.reduce
 
 ### License
 ----

@@ -1,5 +1,4 @@
 var assert = require('chai').assert;
-var Middleware = require('../lib/middleware');
 var value = require('../lib/value');
 
 describe('Value', function() {

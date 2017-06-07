@@ -44,14 +44,19 @@ describe('Flatten the array', function() {
 
 describe('Map', function() {
   var usingNative = false;
+  var mapProto;
 
   beforeEach(function() {
-    var mapProto = Array.prototype.map;
+    mapProto = Array.prototype.map;
     Array.prototype.map = function() {
       mapProto.apply(this, arguments);
       console.log('please don\'t use native map method');
     }
   });
+
+  // afterEach(function() {
+  //   Array.prototype.map = mapProto;
+  // });
 
   it('should not use native map method', function() {
     usingNative = false;

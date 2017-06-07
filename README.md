@@ -23,12 +23,12 @@ $ npm test
  - jumping
  - middleware
  - value
+ - throttle
 
 
 ### Todos
 
  - debounce
- - throttle
  - array.reduce
 
 ### License
